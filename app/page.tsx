@@ -1,20 +1,21 @@
 "use client";
 import { IoMdAttach } from "react-icons/io";
-const CoverLetter = () => {
-  //
-  const PDF_FILE_URL = "http://localhost:3000/resume.pdf";
-  //
-  const downloadPdf = (url: string) => {
-    const fileName = url.split("/").pop();
-    const aTag = document.createElement("a");
-    aTag.href = url;
-    aTag.setAttribute("download", fileName);
-    document.body.appendChild(aTag);
-    aTag.click();
-    aTag.remove();
+
+const CoverLetter: React.FC = () => {
+  const PDF_FILE_URL: string = "http://localhost:3000/resume.pdf";
+
+  const downloadPdf = (url: string): void => {
+    const fileName: string | undefined = url.split("/").pop();
+    if (fileName) {
+      const aTag: HTMLAnchorElement = document.createElement("a");
+      aTag.href = url;
+      aTag.setAttribute("download", fileName);
+      document.body.appendChild(aTag);
+      aTag.click();
+      aTag.remove();
+    }
   };
 
-  //
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center">
       <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg">
