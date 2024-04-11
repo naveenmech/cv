@@ -8,7 +8,7 @@ const CoverLetter: React.FC = () => {
     const fileName: string | undefined = url.split("/").pop();
     if (fileName) {
       const aTag: HTMLAnchorElement = document.createElement("a");
-      aTag.href = url;
+      aTag: string | undefined.href = url;
       aTag.setAttribute("download", fileName);
       document.body.appendChild(aTag);
       aTag.click();
